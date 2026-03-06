@@ -408,6 +408,7 @@ nav {
   font-size:20px; animation:popIn .4s cubic-bezier(.34,1.56,.64,1);
 }
 @keyframes popIn { from{transform:scale(0)} to{transform:scale(1)} }
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 .waitlist-success-title {
   font-family:'Instrument Serif',serif; font-size:22px;
   font-style:italic; color:var(--text);
@@ -1008,21 +1009,44 @@ nav {
 </div>
 
 <script>
-function submitWaitlist() {
-  const input = document.getElementById('waitlist-email');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
+async function submitWaitlist() {
+  const input  = document.getElementById('waitlist-email');
+  const btn    = document.querySelector('.waitlist-submit');
+  const email  = input.value.trim();
+
+  // Validação no front
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     input.style.borderColor = '#e74c3c';
     input.focus();
-    setTimeout(() => input.style.borderColor = '', 1200);
+    setTimeout(() => input.style.borderColor = '', 1400);
     return;
   }
-  // Aqui você conecta ao seu backend / Supabase / Mailchimp
-  // fetch('/api/waitlist', { method:'POST', body: JSON.stringify({ email }) })
-  console.log('Waitlist signup:', email);
-  document.getElementById('waitlist-form-wrap').style.display = 'none';
-  const success = document.getElementById('waitlist-success');
-  success.style.display = 'flex';
+
+  // Loading
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="animation:spin .7s linear infinite"><path d="M8 2a6 6 0 1 0 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+  try {
+    // Chama a função serverless da Vercel — nenhuma credencial no navegador
+    const res = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      document.getElementById('waitlist-form-wrap').style.display = 'none';
+      document.getElementById('waitlist-success').style.display = 'flex';
+    } else {
+      throw new Error('status ' + res.status);
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = '<span class="pt">Entrar na lista</span><span class="en" style="display:none">Join the list</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    input.style.borderColor = '#e74c3c';
+    input.placeholder = 'Algo deu errado, tente novamente';
+    setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'seu@email.com'; }, 2500);
+  }
 }
 
 function showPage(id, tabEl) {
