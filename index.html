@@ -491,6 +491,121 @@ nav {
 .step-desc-en { font-size:12px; color:var(--subtle); font-style:italic; margin-top:6px; line-height:1.5; }
 
 /* ── SHARED ── */
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.55);
+  margin-top: auto;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 64px 60px 48px;
+  display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+}
+.footer-logo {
+  font-family: 'Instrument Serif', serif; font-size: 22px;
+  font-style: italic; color: #fff; margin-bottom: 12px;
+}
+.footer-tagline {
+  font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.65);
+  margin-bottom: 14px; line-height: 1.5;
+}
+.footer-disclaimer {
+  font-size: 11.5px; font-weight: 300; color: rgba(255,255,255,0.28);
+  line-height: 1.6; max-width: 280px;
+}
+.footer-links {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+.footer-col-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  margin-bottom: 16px;
+}
+.footer-link {
+  display: block; font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.6);
+  text-decoration: none; background: none; border: none; cursor: pointer;
+  padding: 0; text-align: left; margin-bottom: 10px;
+  transition: color 0.18s;
+}
+.footer-link:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  max-width: 1100px; margin: 0 auto;
+  padding: 20px 60px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 12px; color: rgba(255,255,255,0.25);
+}
+.footer-bottom-links { display: flex; align-items: center; gap: 10px; }
+.footer-bottom-link {
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  color: rgba(255,255,255,0.3); background: none; border: none;
+  cursor: pointer; padding: 0; transition: color 0.18s;
+}
+.footer-bottom-link:hover { color: rgba(255,255,255,0.7); }
+.footer-bottom-sep { color: rgba(255,255,255,0.15); }
+
+/* ════════════════════════════
+   MODAIS LEGAIS
+════════════════════════════ */
+.legal-modal {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(26,26,24,0.55); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.legal-modal-box {
+  background: var(--white); border-radius: 24px; width: 100%;
+  max-width: 620px; max-height: 82vh; display: flex; flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.28);
+  animation: modalIn 0.28s cubic-bezier(0.34,1.2,0.64,1);
+}
+@keyframes modalIn { from{opacity:0;transform:scale(0.96) translateY(12px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.legal-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 28px 20px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.legal-modal-title {
+  font-family: 'Instrument Serif', serif; font-size: 20px;
+  font-style: italic; color: var(--text);
+}
+.legal-modal-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--surface); border: none; cursor: pointer;
+  font-size: 13px; color: var(--muted); display: flex;
+  align-items: center; justify-content: center; transition: background 0.18s;
+}
+.legal-modal-close:hover { background: var(--border); }
+.legal-modal-body {
+  overflow-y: auto; padding: 24px 28px 32px; flex: 1;
+  font-size: 13.5px; font-weight: 300; color: var(--muted);
+  line-height: 1.75;
+}
+.legal-modal-body h3 {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--text);
+  margin: 24px 0 8px;
+}
+.legal-modal-body h3:first-of-type { margin-top: 4px; }
+.legal-modal-body p { margin-bottom: 4px; }
+.legal-updated {
+  font-size: 11.5px; color: var(--subtle); font-style: italic; margin-bottom: 20px !important;
+}
+.legal-link { color: var(--text); font-weight: 500; text-decoration: underline; }
+
+/* Footer mobile */
+@media (max-width: 900px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 36px; }
+  .footer-links { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { padding: 16px 24px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+@media (max-width: 480px) {
+  .footer-links { grid-template-columns: 1fr; }
+}
+
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -584,9 +699,6 @@ nav {
     <button class="nav-tab" onclick="showPage('pricing', this)">
       <span class="pt">Planos</span><span class="en" style="display:none">Pricing</span>
     </button>
-    <button class="nav-tab" onclick="showPage('reviews', this)">
-      <span class="pt">Depoimentos</span><span class="en" style="display:none">Reviews</span>
-    </button>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -612,9 +724,6 @@ nav {
   </button>
   <button class="nav-tab" onclick="showPage('pricing', null); closeMobileMenu()">
     <span class="pt">Planos</span><span class="en" style="display:none">Pricing</span>
-  </button>
-  <button class="nav-tab" onclick="showPage('reviews', null); closeMobileMenu()">
-    <span class="pt">Depoimentos</span><span class="en" style="display:none">Reviews</span>
   </button>
   <div class="mobile-menu-bottom">
     <div class="lang-toggle">
@@ -947,9 +1056,9 @@ nav {
 </div>
 
 <!-- ══════════════════
-     REVIEWS
+     REVIEWS (oculto por enquanto)
 ══════════════════ -->
-<div id="page-reviews" class="page">
+<div id="page-reviews" class="page" style="display:none !important">
   <div class="reviews-wrap">
     <div class="page-eyebrow reveal"><span class="pt">Depoimentos</span><span class="en" style="display:none">Reviews</span></div>
     <h2 class="page-headline reveal"><span class="pt">O que dizem <em>quem usa.</em></span><span class="en" style="display:none">What <em>users say.</em></span></h2>
@@ -1102,6 +1211,229 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Init
 setLang('pt');
+
+// Modais legais
+function openModal(id) {
+  document.getElementById(id).style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.legal-modal').forEach(m => {
+      m.style.display = 'none';
+    });
+    document.body.style.overflow = '';
+  }
+});
 </script>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Coluna marca -->
+    <div class="footer-brand">
+      <div class="footer-logo">daily flow</div>
+      <p class="footer-tagline pt">Organize seu dia sem ansiedade.</p>
+      <p class="footer-tagline en" style="display:none">Organize your day without anxiety.</p>
+      <p class="footer-disclaimer pt">
+        Daily Flow é um produto independente, atualmente em desenvolvimento.
+        Não afiliado a nenhuma empresa de tecnologia.
+      </p>
+      <p class="footer-disclaimer en" style="display:none">
+        Daily Flow is an independent product, currently in development.
+        Not affiliated with any technology company.
+      </p>
+    </div>
+
+    <!-- Coluna links -->
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title pt">Produto</div>
+        <div class="footer-col-title en" style="display:none">Product</div>
+        <button onclick="showPage('features', document.querySelectorAll('.nav-tab')[1])" class="footer-link">
+          <span class="pt">Funcionalidades</span><span class="en" style="display:none">Features</span>
+        </button>
+        <button onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2])" class="footer-link">
+          <span class="pt">Planos</span><span class="en" style="display:none">Pricing</span>
+        </button>
+        <button onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2])" class="footer-link">
+          <span class="pt">Lista de espera</span><span class="en" style="display:none">Waitlist</span>
+        </button>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title pt">Legal</div>
+        <div class="footer-col-title en" style="display:none">Legal</div>
+        <button onclick="openModal('modal-privacy')" class="footer-link">
+          <span class="pt">Política de Privacidade</span><span class="en" style="display:none">Privacy Policy</span>
+        </button>
+        <button onclick="openModal('modal-terms')" class="footer-link">
+          <span class="pt">Termos de Uso</span><span class="en" style="display:none">Terms of Use</span>
+        </button>
+        <button onclick="openModal('modal-cookies')" class="footer-link">
+          <span class="pt">Política de Cookies</span><span class="en" style="display:none">Cookie Policy</span>
+        </button>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title pt">Contato</div>
+        <div class="footer-col-title en" style="display:none">Contact</div>
+        <a href="mailto:oi@dailyflow.app" class="footer-link">oi@dailyflow.app</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <span class="pt">© 2026 Daily Flow. Todos os direitos reservados.</span>
+    <span class="en" style="display:none">© 2026 Daily Flow. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <button onclick="openModal('modal-privacy')" class="footer-bottom-link pt">Privacidade</button>
+      <button onclick="openModal('modal-privacy')" class="footer-bottom-link en" style="display:none">Privacy</button>
+      <span class="footer-bottom-sep">·</span>
+      <button onclick="openModal('modal-terms')" class="footer-bottom-link pt">Termos</button>
+      <button onclick="openModal('modal-terms')" class="footer-bottom-link en" style="display:none">Terms</button>
+      <span class="footer-bottom-sep">·</span>
+      <button onclick="openModal('modal-cookies')" class="footer-bottom-link pt">Cookies</button>
+      <button onclick="openModal('modal-cookies')" class="footer-bottom-link en" style="display:none">Cookies</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════
+     MODAIS LEGAIS
+══════════════════════════════════ -->
+
+<!-- Política de Privacidade -->
+<div id="modal-privacy" class="legal-modal" onclick="closeModal('modal-privacy')">
+  <div class="legal-modal-box" onclick="event.stopPropagation()">
+    <div class="legal-modal-header">
+      <h2 class="legal-modal-title pt">Política de Privacidade</h2>
+      <h2 class="legal-modal-title en" style="display:none">Privacy Policy</h2>
+      <button class="legal-modal-close" onclick="closeModal('modal-privacy')">✕</button>
+    </div>
+    <div class="legal-modal-body">
+      <p class="legal-updated pt">Última atualização: março de 2026</p>
+      <p class="legal-updated en" style="display:none">Last updated: March 2026</p>
+
+      <h3 class="pt">1. Quais dados coletamos</h3>
+      <h3 class="en" style="display:none">1. What data we collect</h3>
+      <p class="pt">Coletamos apenas o endereço de e-mail fornecido voluntariamente ao se inscrever na lista de espera do Daily Flow. Não coletamos dados sensíveis, dados de pagamento nem informações de dispositivo nesta fase.</p>
+      <p class="en" style="display:none">We only collect the email address voluntarily provided when signing up for the Daily Flow waitlist. We do not collect sensitive data, payment information, or device information at this stage.</p>
+
+      <h3 class="pt">2. Como usamos seus dados</h3>
+      <h3 class="en" style="display:none">2. How we use your data</h3>
+      <p class="pt">Seu e-mail é usado exclusivamente para: (a) enviar um aviso único quando o aplicativo estiver disponível; (b) comunicações relacionadas ao lançamento do Daily Flow. Não compartilhamos seu e-mail com terceiros nem o utilizamos para fins publicitários.</p>
+      <p class="en" style="display:none">Your email is used solely to: (a) send a one-time notification when the app is available; (b) send communications related to the Daily Flow launch. We do not share your email with third parties or use it for advertising purposes.</p>
+
+      <h3 class="pt">3. Onde seus dados ficam armazenados</h3>
+      <h3 class="en" style="display:none">3. Where your data is stored</h3>
+      <p class="pt">Os e-mails são armazenados de forma segura no Supabase (infraestrutura AWS), com criptografia em trânsito (TLS) e em repouso. O acesso é restrito e protegido por controles de autenticação.</p>
+      <p class="en" style="display:none">Emails are securely stored on Supabase (AWS infrastructure), with encryption in transit (TLS) and at rest. Access is restricted and protected by authentication controls.</p>
+
+      <h3 class="pt">4. Seus direitos (LGPD)</h3>
+      <h3 class="en" style="display:none">4. Your rights (LGPD)</h3>
+      <p class="pt">Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar seus dados, corrigir informações incorretas, solicitar a exclusão do seu e-mail a qualquer momento, e revogar seu consentimento. Para exercer qualquer desses direitos, envie um e-mail para <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a>.</p>
+      <p class="en" style="display:none">In accordance with the Brazilian General Data Protection Law (LGPD – Law No. 13,709/2018), you have the right to: access your data, correct inaccurate information, request deletion of your email at any time, and withdraw consent. To exercise any of these rights, email <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a>.</p>
+
+      <h3 class="pt">5. Retenção de dados</h3>
+      <h3 class="en" style="display:none">5. Data retention</h3>
+      <p class="pt">Seus dados são mantidos até o lançamento do aplicativo ou até você solicitar a exclusão, o que ocorrer primeiro. Após o lançamento, você receberá a opção de migrar sua conta ou excluir seus dados permanentemente.</p>
+      <p class="en" style="display:none">Your data is retained until the app launches or until you request deletion, whichever comes first. After launch, you will receive the option to migrate your account or permanently delete your data.</p>
+
+      <h3 class="pt">6. Contato</h3>
+      <h3 class="en" style="display:none">6. Contact</h3>
+      <p class="pt">Dúvidas sobre esta política? Entre em contato: <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
+      <p class="en" style="display:none">Questions about this policy? Contact us: <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Termos de Uso -->
+<div id="modal-terms" class="legal-modal" onclick="closeModal('modal-terms')">
+  <div class="legal-modal-box" onclick="event.stopPropagation()">
+    <div class="legal-modal-header">
+      <h2 class="legal-modal-title pt">Termos de Uso</h2>
+      <h2 class="legal-modal-title en" style="display:none">Terms of Use</h2>
+      <button class="legal-modal-close" onclick="closeModal('modal-terms')">✕</button>
+    </div>
+    <div class="legal-modal-body">
+      <p class="legal-updated pt">Última atualização: março de 2026</p>
+      <p class="legal-updated en" style="display:none">Last updated: March 2026</p>
+
+      <h3 class="pt">1. Aceitação</h3>
+      <h3 class="en" style="display:none">1. Acceptance</h3>
+      <p class="pt">Ao se inscrever na lista de espera do Daily Flow, você concorda com estes Termos de Uso e com nossa Política de Privacidade. Se não concordar, não forneça seu e-mail.</p>
+      <p class="en" style="display:none">By signing up for the Daily Flow waitlist, you agree to these Terms of Use and our Privacy Policy. If you do not agree, please do not provide your email.</p>
+
+      <h3 class="pt">2. Sobre o serviço</h3>
+      <h3 class="en" style="display:none">2. About the service</h3>
+      <p class="pt">O Daily Flow é um aplicativo de produtividade pessoal atualmente em desenvolvimento. Esta página tem caráter informativo e de captação de interesse. Nenhuma cobrança é realizada nesta fase. As funcionalidades e preços apresentados são previstos e podem ser alterados antes do lançamento.</p>
+      <p class="en" style="display:none">Daily Flow is a personal productivity app currently in development. This page is informational and for interest capture only. No charges are made at this stage. Features and prices shown are planned and may change before launch.</p>
+
+      <h3 class="pt">3. Uso adequado</h3>
+      <h3 class="en" style="display:none">3. Acceptable use</h3>
+      <p class="pt">Você concorda em não usar esta página para fins ilícitos, não enviar endereços de e-mail de terceiros sem autorização, e não tentar burlar os sistemas de segurança do site.</p>
+      <p class="en" style="display:none">You agree not to use this page for unlawful purposes, not to submit third-party email addresses without authorization, and not to attempt to bypass the site's security systems.</p>
+
+      <h3 class="pt">4. Propriedade intelectual</h3>
+      <h3 class="en" style="display:none">4. Intellectual property</h3>
+      <p class="pt">Todo o conteúdo desta página — incluindo nome, logotipo, textos, design e código — é propriedade exclusiva do Daily Flow e protegido pelas leis de propriedade intelectual brasileiras. É proibida a reprodução sem autorização prévia.</p>
+      <p class="en" style="display:none">All content on this page — including name, logo, texts, design, and code — is the exclusive property of Daily Flow and protected by Brazilian intellectual property laws. Reproduction without prior authorization is prohibited.</p>
+
+      <h3 class="pt">5. Limitação de responsabilidade</h3>
+      <h3 class="en" style="display:none">5. Limitation of liability</h3>
+      <p class="pt">O Daily Flow não se responsabiliza por danos indiretos decorrentes do uso desta página. Esta é uma landing page de pré-lançamento e não constitui oferta vinculante de produto ou serviço.</p>
+      <p class="en" style="display:none">Daily Flow is not liable for indirect damages arising from the use of this page. This is a pre-launch landing page and does not constitute a binding offer of product or service.</p>
+
+      <h3 class="pt">6. Lei aplicável</h3>
+      <h3 class="en" style="display:none">6. Governing law</h3>
+      <p class="pt">Estes termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de São Luís, Maranhão, para dirimir eventuais disputas.</p>
+      <p class="en" style="display:none">These terms are governed by the laws of the Federative Republic of Brazil. The courts of São Luís, Maranhão are elected as the venue for any disputes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Política de Cookies -->
+<div id="modal-cookies" class="legal-modal" onclick="closeModal('modal-cookies')">
+  <div class="legal-modal-box" onclick="event.stopPropagation()">
+    <div class="legal-modal-header">
+      <h2 class="legal-modal-title pt">Política de Cookies</h2>
+      <h2 class="legal-modal-title en" style="display:none">Cookie Policy</h2>
+      <button class="legal-modal-close" onclick="closeModal('modal-cookies')">✕</button>
+    </div>
+    <div class="legal-modal-body">
+      <p class="legal-updated pt">Última atualização: março de 2026</p>
+      <p class="legal-updated en" style="display:none">Last updated: March 2026</p>
+
+      <h3 class="pt">1. O que são cookies</h3>
+      <h3 class="en" style="display:none">1. What are cookies</h3>
+      <p class="pt">Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles permitem que o site lembre suas preferências e melhore a experiência de uso.</p>
+      <p class="en" style="display:none">Cookies are small text files stored in your browser when you visit a website. They allow the site to remember your preferences and improve the user experience.</p>
+
+      <h3 class="pt">2. Cookies que utilizamos</h3>
+      <h3 class="en" style="display:none">2. Cookies we use</h3>
+      <p class="pt">Esta página utiliza apenas cookies essenciais de funcionamento (ex: idioma selecionado). Não utilizamos cookies de rastreamento, publicidade ou analytics de terceiros nesta fase.</p>
+      <p class="en" style="display:none">This page uses only essential functional cookies (e.g., selected language). We do not use tracking, advertising, or third-party analytics cookies at this stage.</p>
+
+      <h3 class="pt">3. Como controlar cookies</h3>
+      <h3 class="en" style="display:none">3. How to control cookies</h3>
+      <p class="pt">Você pode configurar seu navegador para recusar cookies ou alertá-lo quando cookies estão sendo enviados. Consulte as configurações do seu navegador para mais informações. Desabilitar cookies essenciais pode afetar o funcionamento do site.</p>
+      <p class="en" style="display:none">You can configure your browser to refuse cookies or alert you when cookies are being sent. See your browser settings for more information. Disabling essential cookies may affect site functionality.</p>
+
+      <h3 class="pt">4. Contato</h3>
+      <h3 class="en" style="display:none">4. Contact</h3>
+      <p class="pt">Dúvidas? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
+      <p class="en" style="display:none">Questions? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
