@@ -345,6 +345,118 @@ nav {
 }
 .plan-integration-badge svg { flex-shrink:0; }
 
+/* ── WAITLIST ── */
+.waitlist-hero {
+  text-align:center; padding-bottom:72px;
+}
+.waitlist-box {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:28px; padding:52px 48px 48px;
+  max-width:560px; margin:48px auto 0;
+  box-shadow:0 8px 48px rgba(26,26,24,.07), 0 2px 12px rgba(26,26,24,.04);
+  position:relative; overflow:hidden;
+}
+.waitlist-box::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,26,24,.04) 0%, transparent 70%);
+  pointer-events:none;
+}
+.waitlist-box-title {
+  font-family:'Instrument Serif',serif;
+  font-size:32px; font-style:italic; color:var(--text);
+  margin-bottom:8px; line-height:1.15;
+}
+.waitlist-box-sub {
+  font-size:14px; font-weight:300; color:var(--muted);
+  margin-bottom:32px; line-height:1.6;
+}
+.waitlist-form {
+  display:flex; gap:10px; align-items:stretch;
+}
+.waitlist-input {
+  flex:1; padding:14px 18px;
+  border:1.5px solid var(--border); border-radius:13px;
+  font-family:'DM Sans',sans-serif; font-size:14px;
+  color:var(--text); background:var(--bg);
+  outline:none; transition:border-color .2s;
+}
+.waitlist-input::placeholder { color:var(--subtle); }
+.waitlist-input:focus { border-color:var(--text); background:var(--white); }
+.waitlist-submit {
+  padding:14px 22px; background:var(--text); color:#fff;
+  border:none; border-radius:13px; font-family:'DM Sans',sans-serif;
+  font-size:14px; font-weight:600; cursor:pointer;
+  transition:all .22s; white-space:nowrap;
+  display:flex; align-items:center; gap:7px;
+}
+.waitlist-submit:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(26,26,24,.28); }
+.waitlist-submit:active { transform:translateY(0); }
+.waitlist-submit svg { transition:transform .2s; }
+.waitlist-submit:hover svg { transform:translateX(3px); }
+.waitlist-privacy {
+  font-size:11px; color:var(--subtle); margin-top:14px;
+  display:flex; align-items:center; justify-content:center; gap:5px;
+}
+.waitlist-success {
+  display:none; flex-direction:column; align-items:center;
+  gap:12px; padding:8px 0;
+}
+.waitlist-success-icon {
+  width:52px; height:52px; border-radius:50%;
+  background:var(--text); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; animation:popIn .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes popIn { from{transform:scale(0)} to{transform:scale(1)} }
+.waitlist-success-title {
+  font-family:'Instrument Serif',serif; font-size:22px;
+  font-style:italic; color:var(--text);
+}
+.waitlist-success-sub {
+  font-size:13px; color:var(--muted); font-weight:300;
+}
+
+/* ── PLANS PREVIEW ── */
+.plans-preview-section {
+  padding:0 0 80px;
+}
+.plans-preview-eyebrow {
+  display:flex; align-items:center; justify-content:center; gap:16px;
+  margin-bottom:48px;
+}
+.plans-preview-line {
+  flex:1; max-width:120px; height:1px; background:var(--border);
+}
+.plans-preview-label {
+  font-size:11px; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--subtle);
+  white-space:nowrap;
+}
+.plan-card.preview {
+  opacity:.72; pointer-events:none;
+  filter:blur(0px);
+  position:relative;
+}
+.plan-card.preview::after {
+  content:''; position:absolute; inset:0;
+  border-radius:26px;
+  background:linear-gradient(to bottom, transparent 40%, rgba(240,239,237,.7) 100%);
+}
+.plan-card.featured.preview::after {
+  background:linear-gradient(to bottom, transparent 40%, rgba(26,26,24,.55) 100%);
+}
+.plan-coming-soon {
+  position:absolute; top:16px; right:16px; z-index:2;
+  background:rgba(255,255,255,.9); color:var(--muted);
+  font-size:10px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; padding:4px 10px; border-radius:99px;
+  border:1px solid var(--border);
+}
+.plan-card.featured .plan-coming-soon {
+  background:rgba(255,255,255,.15); color:rgba(255,255,255,.6);
+  border-color:rgba(255,255,255,.15);
+}
+
 /* ════════════════════════════
    TESTIMONIALS PAGE
 ════════════════════════════ */
@@ -481,7 +593,7 @@ nav {
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <a href="#" class="nav-cta" onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2]); return false;">
-      <span class="pt">Começar grátis</span><span class="en" style="display:none">Start free</span>
+      <span class="pt">Entrar na lista</span><span class="en" style="display:none">Join waitlist</span>
     </a>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
@@ -509,7 +621,7 @@ nav {
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <a href="#" class="nav-cta" onclick="showPage('pricing', null); closeMobileMenu(); return false;">
-      <span class="pt">Começar grátis</span><span class="en" style="display:none">Start free</span>
+      <span class="pt">Entrar na lista</span><span class="en" style="display:none">Join waitlist</span>
     </a>
   </div>
 </div>
@@ -544,8 +656,8 @@ nav {
         </p>
         <div class="hero-actions">
           <a href="#" class="btn-primary" onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2]); return false;">
-            <span class="pt">Baixar grátis →</span>
-            <span class="en" style="display:none">Download free →</span>
+            <span class="pt">Entrar na lista →</span>
+            <span class="en" style="display:none">Join the waitlist →</span>
           </a>
           <button class="btn-secondary" onclick="showPage('features', document.querySelectorAll('.nav-tab')[1])">
             <span class="pt">Ver funcionalidades</span>
@@ -553,8 +665,8 @@ nav {
           </button>
         </div>
         <p class="hero-note">
-          <span class="pt">Gratuito para começar · iOS, Android e Web · Sem cartão de crédito</span>
-          <span class="en" style="display:none">Free to start · iOS, Android & Web · No credit card needed</span>
+          <span class="pt">Acesso antecipado grátis · iOS, Android e Web · Sem cartão de crédito</span>
+          <span class="en" style="display:none">Free early access · iOS, Android & Web · No credit card needed</span>
         </p>
       </div>
       <div class="hero-right">
@@ -693,73 +805,143 @@ nav {
 ══════════════════ -->
 <div id="page-pricing" class="page">
   <div class="pricing-wrap">
-    <div class="page-eyebrow reveal" style="justify-content:center"><span class="pt">Planos</span><span class="en" style="display:none">Plans</span></div>
-    <h2 class="page-headline reveal" style="text-align:center"><span class="pt">Comece grátis.<br><em>Escale quando quiser.</em></span><span class="en" style="display:none">Start free.<br><em>Scale when ready.</em></span></h2>
-    <div class="page-headline-sub reveal" style="text-align:center"><span class="pt">Start free. Scale when ready.</span><span class="en" style="display:none">Comece grátis. Escale quando quiser.</span></div>
-    <p class="reveal" style="font-size:15px;color:var(--muted);font-weight:300;text-align:center"><span class="pt">Sem truques. Sem surpresas no cartão.</span><span class="en" style="display:none">No tricks. No billing surprises.</span></p>
-    <div class="pricing-grid reveal">
-      <!-- FREE -->
-      <div class="plan-card">
-        <div class="plan-name">Free</div>
-        <div class="plan-price">R$0</div>
-        <div class="plan-period pt">para sempre</div><div class="plan-period en" style="display:none">forever</div>
-        <div class="plan-period-note pt">free forever · gratuito para sempre</div><div class="plan-period-note en" style="display:none">gratuito para sempre · free forever</div>
-        <ul class="plan-features">
-          <li><div class="plan-check">✓</div><span class="pt">Até 3 projetos</span><span class="en" style="display:none">Up to 3 projects</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Tarefas ilimitadas</span><span class="en" style="display:none">Unlimited tasks</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Contexto Pessoal/Trabalho</span><span class="en" style="display:none">Personal/Work context</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Checklist em tarefas</span><span class="en" style="display:none">Task checklists</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Sync entre dispositivos</span><span class="en" style="display:none">Cross-device sync</span></li>
-        </ul>
-        <a href="#" class="plan-btn pt">Criar conta grátis</a><a href="#" class="plan-btn en" style="display:none">Create free account</a>
-        <div class="plan-note pt">Create free account</div><div class="plan-note en" style="display:none">Criar conta grátis</div>
+
+    <!-- ══ WAITLIST ══ -->
+    <div class="waitlist-hero">
+      <div class="page-eyebrow reveal" style="justify-content:center">
+        <span class="pt">Acesso antecipado</span><span class="en" style="display:none">Early access</span>
+      </div>
+      <h2 class="page-headline reveal" style="text-align:center">
+        <span class="pt">O app está chegando.<br><em>Seja o primeiro.</em></span>
+        <span class="en" style="display:none">The app is coming.<br><em>Be the first.</em></span>
+      </h2>
+      <div class="page-headline-sub reveal" style="text-align:center">
+        <span class="pt">Be the first. O app está chegando.</span>
+        <span class="en" style="display:none">O app está chegando. Seja o primeiro.</span>
       </div>
 
-      <!-- PRO -->
-      <div class="plan-card featured">
-        <div class="plan-badge pt">Mais popular</div><div class="plan-badge en" style="display:none">Most popular</div>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price">R$7,90</div>
-        <div class="plan-period pt">/mês · cobrado anualmente</div><div class="plan-period en" style="display:none">/month · billed yearly</div>
-        <div class="plan-period-note pt">R$69/ano · ou R$10,90/mês mensal</div><div class="plan-period-note en" style="display:none">R$69/year · or R$10.90/month monthly</div>
-        <ul class="plan-features">
-          <li><div class="plan-check">✓</div><span class="pt">Projetos ilimitados</span><span class="en" style="display:none">Unlimited projects</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Tudo do Free</span><span class="en" style="display:none">Everything in Free</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Tarefas recorrentes</span><span class="en" style="display:none">Recurring tasks</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Anexos e notas</span><span class="en" style="display:none">Attachments & notes</span></li>
-          <li><div class="plan-check">✓</div><span class="pt">Agenda semanal avançada</span><span class="en" style="display:none">Advanced weekly agenda</span></li>
-          <!-- Calendar integrations -->
-          <li style="flex-direction:column; align-items:flex-start; gap:8px;">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div class="plan-check">✓</div>
-              <span class="pt">Integrações de calendário</span><span class="en" style="display:none">Calendar integrations</span>
-            </div>
-            <div class="plan-integrations">
-              <!-- iOS Calendar badge -->
-              <div class="plan-integration-badge">
-                <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
-                  <rect x="2" y="4" width="16" height="14" rx="3" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
-                  <path d="M6 2V5M14 2V5M2 8H18" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round"/>
-                  <path d="M7 12L9 14L13 10" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                iOS Calendar
-              </div>
-              <!-- Google Calendar badge -->
-              <div class="plan-integration-badge">
-                <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
-                  <rect x="2" y="4" width="16" height="14" rx="3" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
-                  <path d="M6 2V5M14 2V5M2 8H18" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round"/>
-                  <circle cx="10" cy="13" r="2.5" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
-                </svg>
-                Google Calendar
-              </div>
-            </div>
-          </li>
-        </ul>
-        <a href="#" class="plan-btn pt">Começar Pro grátis — 14 dias</a><a href="#" class="plan-btn en" style="display:none">Start Pro free — 14 days</a>
-        <div class="plan-note pt">Start Pro free for 14 days</div><div class="plan-note en" style="display:none">Começar Pro grátis por 14 dias</div>
+      <div class="waitlist-box reveal">
+        <!-- Estado: formulário -->
+        <div id="waitlist-form-wrap">
+          <div class="waitlist-box-title pt">Reserve seu acesso grátis.</div>
+          <div class="waitlist-box-title en" style="display:none">Reserve your free access.</div>
+          <div class="waitlist-box-sub pt">Quando o Daily Flow lançar, você recebe acesso imediato — antes de todo mundo.</div>
+          <div class="waitlist-box-sub en" style="display:none">When Daily Flow launches, you get instant access — before everyone else.</div>
+
+          <div class="waitlist-form">
+            <input
+              id="waitlist-email"
+              type="email"
+              class="waitlist-input"
+              placeholder="seu@email.com"
+              autocomplete="email"
+              onkeydown="if(event.key==='Enter') submitWaitlist()"
+            />
+            <button class="waitlist-submit" onclick="submitWaitlist()">
+              <span class="pt">Entrar na lista</span>
+              <span class="en" style="display:none">Join the list</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="waitlist-privacy">
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1L2 3.5V7c0 3 2.3 5.3 5 6 2.7-.7 5-3 5-6V3.5L7 1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+            <span class="pt">Sem spam. Só um aviso quando o app lançar.</span>
+            <span class="en" style="display:none">No spam. Just one email when we launch.</span>
+          </div>
+        </div>
+
+        <!-- Estado: sucesso -->
+        <div class="waitlist-success" id="waitlist-success">
+          <div class="waitlist-success-icon">✓</div>
+          <div class="waitlist-success-title pt">Você está na lista!</div>
+          <div class="waitlist-success-title en" style="display:none">You're on the list!</div>
+          <div class="waitlist-success-sub pt">Avisaremos no seu email quando o app estiver pronto.</div>
+          <div class="waitlist-success-sub en" style="display:none">We'll email you as soon as the app is ready.</div>
+        </div>
       </div>
     </div>
+
+    <!-- ══ PLANS PREVIEW ══ -->
+    <div class="plans-preview-section">
+      <div class="plans-preview-eyebrow reveal">
+        <div class="plans-preview-line"></div>
+        <span class="plans-preview-label pt">Estes serão os nossos planos</span>
+        <span class="plans-preview-label en" style="display:none">These will be our plans</span>
+        <div class="plans-preview-line"></div>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <!-- FREE preview -->
+        <div class="plan-card preview">
+          <div class="plan-coming-soon pt">Em breve</div>
+          <div class="plan-coming-soon en" style="display:none">Coming soon</div>
+          <div class="plan-name">Free</div>
+          <div class="plan-price">R$0</div>
+          <div class="plan-period pt">para sempre</div><div class="plan-period en" style="display:none">forever</div>
+          <div class="plan-period-note pt">free forever · gratuito para sempre</div><div class="plan-period-note en" style="display:none">gratuito para sempre · free forever</div>
+          <ul class="plan-features">
+            <li><div class="plan-check">✓</div><span class="pt">Até 3 projetos</span><span class="en" style="display:none">Up to 3 projects</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Tarefas ilimitadas</span><span class="en" style="display:none">Unlimited tasks</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Contexto Pessoal/Trabalho</span><span class="en" style="display:none">Personal/Work context</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Checklist em tarefas</span><span class="en" style="display:none">Task checklists</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Sync entre dispositivos</span><span class="en" style="display:none">Cross-device sync</span></li>
+          </ul>
+        </div>
+
+        <!-- PRO preview -->
+        <div class="plan-card featured preview">
+          <div class="plan-badge pt">Mais popular</div><div class="plan-badge en" style="display:none">Most popular</div>
+          <div class="plan-coming-soon pt">Em breve</div>
+          <div class="plan-coming-soon en" style="display:none">Coming soon</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">R$7,90</div>
+          <div class="plan-period pt">/mês · cobrado anualmente</div><div class="plan-period en" style="display:none">/month · billed yearly</div>
+          <div class="plan-period-note pt">R$69/ano · ou R$10,90/mês mensal</div><div class="plan-period-note en" style="display:none">R$69/year · or R$10.90/month monthly</div>
+          <ul class="plan-features">
+            <li><div class="plan-check">✓</div><span class="pt">Projetos ilimitados</span><span class="en" style="display:none">Unlimited projects</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Tudo do Free</span><span class="en" style="display:none">Everything in Free</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Tarefas recorrentes</span><span class="en" style="display:none">Recurring tasks</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Anexos e notas</span><span class="en" style="display:none">Attachments & notes</span></li>
+            <li><div class="plan-check">✓</div><span class="pt">Agenda semanal avançada</span><span class="en" style="display:none">Advanced weekly agenda</span></li>
+            <li style="flex-direction:column; align-items:flex-start; gap:8px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="plan-check">✓</div>
+                <span class="pt">Integrações de calendário</span><span class="en" style="display:none">Calendar integrations</span>
+              </div>
+              <div class="plan-integrations">
+                <div class="plan-integration-badge">
+                  <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
+                    <rect x="2" y="4" width="16" height="14" rx="3" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
+                    <path d="M6 2V5M14 2V5M2 8H18" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M7 12L9 14L13 10" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  iOS Calendar
+                </div>
+                <div class="plan-integration-badge">
+                  <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
+                    <rect x="2" y="4" width="16" height="14" rx="3" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
+                    <path d="M6 2V5M14 2V5M2 8H18" stroke="rgba(255,255,255,0.6)" stroke-width="1.4" stroke-linecap="round"/>
+                    <circle cx="10" cy="13" r="2.5" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
+                  </svg>
+                  Google Calendar
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="reveal" style="text-align:center;font-size:13px;color:var(--subtle);margin-top:24px;font-style:italic;font-weight:300;">
+        <span class="pt">Entre na lista agora e garanta acesso gratuito no lançamento.</span>
+        <span class="en" style="display:none">Join the list now and get free access at launch.</span>
+      </p>
+    </div>
+
   </div>
 </div>
 
@@ -820,12 +1002,29 @@ nav {
       <div class="cta-strip-title en" style="display:none">Join them.</div>
       <div class="cta-strip-sub pt">Grátis para começar. Sem cartão de crédito.</div>
       <div class="cta-strip-sub en" style="display:none">Free to start. No credit card needed.</div>
-      <a href="#" class="btn-white" onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2]); return false;"><span class="pt">Começar grátis →</span><span class="en" style="display:none">Start free →</span></a>
+      <a href="#" class="btn-white" onclick="showPage('pricing', document.querySelectorAll('.nav-tab')[2]); return false;"><span class="pt">Entrar na lista →</span><span class="en" style="display:none">Join the waitlist →</span></a>
     </div>
   </div>
 </div>
 
 <script>
+function submitWaitlist() {
+  const input = document.getElementById('waitlist-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) {
+    input.style.borderColor = '#e74c3c';
+    input.focus();
+    setTimeout(() => input.style.borderColor = '', 1200);
+    return;
+  }
+  // Aqui você conecta ao seu backend / Supabase / Mailchimp
+  // fetch('/api/waitlist', { method:'POST', body: JSON.stringify({ email }) })
+  console.log('Waitlist signup:', email);
+  document.getElementById('waitlist-form-wrap').style.display = 'none';
+  const success = document.getElementById('waitlist-success');
+  success.style.display = 'flex';
+}
+
 function showPage(id, tabEl) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
