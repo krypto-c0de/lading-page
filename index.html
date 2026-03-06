@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Flow — Organize seu dia</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -409,9 +406,11 @@ nav {
 .step-number { width:72px; height:72px; border-radius:50%; border:1px solid var(--border); background:var(--white); display:flex; align-items:center; justify-content:center; margin-bottom:28px; position:relative; box-shadow:0 2px 12px rgba(26,26,24,0.07); transition:all 0.25s; }
 .step-number:hover { background:var(--text); border-color:var(--text); }
 .step-number:hover .step-num-label { color:#fff; }
-.step-number:hover .step-emoji { filter:brightness(10); }
+.step-number:hover .step-emoji svg { stroke: #fff !important; }
+.step-number:hover .step-emoji svg circle[fill="#1A1A18"] { fill: #fff; }
+.step-number:hover .step-emoji svg path[fill="#1A1A18"] { fill: #fff; }
 .step-num-label { position:absolute; top:-8px; right:-8px; width:22px; height:22px; border-radius:50%; background:var(--text); color:#fff; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; }
-.step-emoji { font-size:28px; }
+.step-emoji { width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
 .step-title { font-family:'Instrument Serif',serif; font-size:22px; font-style:italic; color:var(--text); margin-bottom:6px; line-height:1.2; }
 .step-title-en { font-size:12px; color:var(--subtle); font-style:italic; margin-bottom:12px; }
 .step-desc { font-size:14px; font-weight:300; color:var(--muted); line-height:1.65; }
@@ -609,7 +608,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
         <div class="mockup-wrap">
           <div class="float-card float-card-1">
             <div class="fc-label pt">Hoje concluídas</div><div class="fc-label en" style="display:none">Completed today</div>
-            <div class="fc-value">7</div><div class="fc-sub">de 11 🔥</div>
+            <div class="fc-value">7</div><div class="fc-sub">de 11 <svg width="11" height="11" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle;margin-left:1px"><path d="M10 2C10 2 12 5 11 8C13 6 14 3 14 3C14 3 17 6 17 10C17 14.4 13.9 17 10 17C6.1 17 3 14.4 3 10C3 7 5 5 5 5C5 5 5 8 7 9C6 7 7 3 10 2Z" stroke="#1A1A18" stroke-width="1.4" stroke-linejoin="round" fill="none"/></svg></div>
           </div>
           <div class="mockup-phone">
             <div class="phone-notch">
@@ -626,14 +625,14 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
                 <div class="phone-sw-btn pt">Trabalho</div><div class="phone-sw-btn en" style="display:none">Work</div>
                 <div class="phone-sw-btn pt">Tudo</div><div class="phone-sw-btn en" style="display:none">All</div>
               </div>
-              <div class="phone-greeting pt">Bom dia, Ana 👋</div><div class="phone-greeting en" style="display:none">Good morning, Ana 👋</div>
+              <div class="phone-greeting pt">Bom dia, Ana <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle"><path d="M6 3C6 2.4 6.4 2 7 2C7.6 2 8 2.4 8 3V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M8 4C8 3.4 8.4 3 9 3C9.6 3 10 3.4 10 4V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M10 5C10 4.4 10.4 4 11 4C11.6 4 12 4.4 12 5V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M12 6.5C12 5.9 12.4 5.5 13 5.5C13.6 5.5 14 5.9 14 6.5V12C14 15.3 11.3 18 8 18C4.7 18 2 15.3 2 12V9C2 8.4 2.4 8 3 8C3.6 8 4 8.4 4 9V11" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M6 9V3" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="phone-greeting en" style="display:none">Good morning, Ana <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle"><path d="M6 3C6 2.4 6.4 2 7 2C7.6 2 8 2.4 8 3V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M8 4C8 3.4 8.4 3 9 3C9.6 3 10 3.4 10 4V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M10 5C10 4.4 10.4 4 11 4C11.6 4 12 4.4 12 5V9" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M12 6.5C12 5.9 12.4 5.5 13 5.5C13.6 5.5 14 5.9 14 6.5V12C14 15.3 11.3 18 8 18C4.7 18 2 15.3 2 12V9C2 8.4 2.4 8 3 8C3.6 8 4 8.4 4 9V11" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/><path d="M6 9V3" stroke="#1A1A18" stroke-width="1.4" stroke-linecap="round"/></svg></div>
               <div class="phone-date pt">Sexta-feira, 6 de março</div><div class="phone-date en" style="display:none">Friday, March 6th</div>
               <div class="phone-progress"><div class="phone-bar"><div class="phone-bar-fill"></div></div><span class="phone-prog-label"><strong>5</strong>/11</span></div>
               <div class="phone-section-label pt">Para hoje</div><div class="phone-section-label en" style="display:none">For today</div>
               <div class="phone-task"><div class="phone-check"></div><div class="phone-task-body"><div class="phone-task-title pt">Revisar proposta</div><div class="phone-task-title en" style="display:none">Review proposal</div><span class="phone-tag ptag-urgent pt">Urgente</span><span class="phone-tag ptag-urgent en" style="display:none">Urgent</span></div></div>
               <div class="phone-task"><div class="phone-check"></div><div class="phone-task-body"><div class="phone-task-title">Stand-up design</div><span class="phone-tag ptag-work pt">Trabalho</span><span class="phone-tag ptag-work en" style="display:none">Work</span></div></div>
               <div class="phone-task done"><div class="phone-check"></div><div class="phone-task-body"><div class="phone-task-title pt">Responder e-mails</div><div class="phone-task-title en" style="display:none">Reply to emails</div></div></div>
-              <div class="phone-streak"><span style="font-size:15px">🔥</span><div class="phone-streak-text"><strong class="pt">Sequência ativa!</strong><strong class="en" style="display:none">Streak active!</strong><span class="pt">7 dias seguidos</span><span class="en" style="display:none">7 days in a row</span></div><div class="phone-streak-badge">7d</div></div>
+              <div class="phone-streak"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" style="flex-shrink:0"><path d="M10 2C10 2 12 5 11 8C13 6 14 3 14 3C14 3 17 6 17 10C17 14.4 13.9 17 10 17C6.1 17 3 14.4 3 10C3 7 5 5 5 5C5 5 5 8 7 9C6 7 7 3 10 2Z" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linejoin="round" fill="none"/></svg><div class="phone-streak-text"><strong class="pt">Sequência ativa!</strong><strong class="en" style="display:none">Streak active!</strong><span class="pt">7 dias seguidos</span><span class="en" style="display:none">7 days in a row</span></div><div class="phone-streak-badge">7d</div></div>
             </div>
             <div class="phone-nav">
               <div class="phone-nav-item on"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><path d="M3 10L10 3L17 10V17H13V13H7V17H3V10Z" stroke="#1A1A18" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="phone-nav-label pt">Hoje</div><div class="phone-nav-label en" style="display:none">Today</div><div class="phone-nav-dot"></div></div>
@@ -665,7 +664,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
     <div class="page-headline-sub reveal"><span class="pt">Three steps to your flow.</span><span class="en" style="display:none">Três passos para o seu flow.</span></div>
     <div class="how-steps">
       <div class="how-step reveal">
-        <div class="step-number"><div class="step-num-label">1</div><div class="step-emoji">✍️</div></div>
+        <div class="step-number"><div class="step-num-label">1</div><svg class="step-emoji" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 20L8.5 19L19 8.5C19.8 7.7 19.8 6.4 19 5.6L18.4 5C17.6 4.2 16.3 4.2 15.5 5L5 15.5L4 20Z" stroke="#1A1A18" stroke-width="1.5" stroke-linejoin="round"/><path d="M14.5 6L18 9.5" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="step-title pt">Crie suas tarefas</div><div class="step-title en" style="display:none">Create your tasks</div>
         <div class="step-title-en pt">Create your tasks</div><div class="step-title-en en" style="display:none">Crie suas tarefas</div>
         <p class="step-desc pt">Adicione tarefas em segundos. Classifique como pessoal ou profissional com um toque. Adicione checklists, data e hora se quiser.</p>
@@ -674,7 +673,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
         <p class="step-desc-en en" style="display:none">Adicione tarefas em segundos, classifique como pessoal ou trabalho.</p>
       </div>
       <div class="how-step reveal">
-        <div class="step-number"><div class="step-num-label">2</div><div class="step-emoji">🎯</div></div>
+        <div class="step-number"><div class="step-num-label">2</div><svg class="step-emoji" width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1A1A18" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="#1A1A18" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="#1A1A18"/></svg></div>
         <div class="step-title pt">Foque no que importa</div><div class="step-title en" style="display:none">Focus on what matters</div>
         <div class="step-title-en pt">Focus on what matters</div><div class="step-title-en en" style="display:none">Foque no que importa</div>
         <p class="step-desc pt">Toda manhã, a tela "Hoje" mostra exatamente o que precisa ser feito. Sem distrações, sem lista infinita — só o essencial do dia.</p>
@@ -683,7 +682,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
         <p class="step-desc-en en" style="display:none">Toda manhã, veja exatamente o que precisa ser feito hoje.</p>
       </div>
       <div class="how-step reveal">
-        <div class="step-number"><div class="step-num-label">3</div><div class="step-emoji">🔥</div></div>
+        <div class="step-number"><div class="step-num-label">3</div><svg class="step-emoji" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 14 6.5 13 10C15.5 7.5 16.5 4 16.5 4C16.5 4 20 7.5 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 8.5 6 6.5 6 6.5C6 6.5 6 10 8.5 11C7.5 8.5 8.5 4 12 3Z" stroke="#1A1A18" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg></div>
         <div class="step-title pt">Construa seu ritmo</div><div class="step-title en" style="display:none">Build your rhythm</div>
         <div class="step-title-en pt">Build your rhythm</div><div class="step-title-en en" style="display:none">Construa seu ritmo</div>
         <p class="step-desc pt">Complete tarefas, ganhe streaks e celebre seu progresso. O Daily Flow acompanha sua evolução sem gerar ansiedade ou cobrança.</p>
@@ -704,12 +703,12 @@ footer { background: var(--text); color: rgba(255,255,255,0.55); margin-top: aut
     <h2 class="page-headline reveal"><span class="pt">Tudo que você precisa,<br><em>nada que atrapalha.</em></span><span class="en" style="display:none">Everything you need,<br><em>nothing in the way.</em></span></h2>
     <div class="page-headline-sub reveal"><span class="pt">Everything you need, nothing in the way.</span><span class="en" style="display:none">Tudo que você precisa, nada que atrapalha.</span></div>
     <div class="features-grid">
-      <div class="feature-card reveal"><div class="feature-icon">⚡</div><div class="feature-title pt">Tela "Hoje" inteligente</div><div class="feature-title en" style="display:none">Smart "Today" screen</div><div class="feature-title-alt pt">Smart "Today" screen</div><div class="feature-title-alt en" style="display:none">Tela "Hoje" inteligente</div><div class="feature-desc pt">Abre sempre no que importa agora. Progresso do dia visível de relance, sem precisar procurar.</div><div class="feature-desc en" style="display:none">Always opens on what matters now. Day progress visible at a glance.</div></div>
-      <div class="feature-card dark reveal"><div class="feature-icon">⊕</div><div class="feature-title pt">Contextos separados</div><div class="feature-title en" style="display:none">Separate contexts</div><div class="feature-title-alt pt">Separate contexts</div><div class="feature-title-alt en" style="display:none">Contextos separados</div><div class="feature-desc pt">Pessoal e profissional num só app, sem misturar. Alterne com um toque.</div><div class="feature-desc en" style="display:none">Personal and work in one app, never mixed. Switch with one tap.</div></div>
-      <div class="feature-card reveal"><div class="feature-icon">☑️</div><div class="feature-title pt">Checklist nativo</div><div class="feature-title en" style="display:none">Native checklist</div><div class="feature-title-alt pt">Native checklist</div><div class="feature-title-alt en" style="display:none">Checklist nativo</div><div class="feature-desc pt">Subtarefas dentro de qualquer tarefa. Perfeito para projetos com etapas.</div><div class="feature-desc en" style="display:none">Subtasks inside any task. Perfect for multi-step projects.</div></div>
-      <div class="feature-card reveal"><div class="feature-icon">📅</div><div class="feature-title pt">Agenda semanal</div><div class="feature-title en" style="display:none">Weekly agenda</div><div class="feature-title-alt pt">Weekly agenda</div><div class="feature-title-alt en" style="display:none">Agenda semanal</div><div class="feature-desc pt">Veja a semana inteira num só olhar. Slots livres visíveis para planejar melhor.</div><div class="feature-desc en" style="display:none">See the whole week at once. Free slots visible to help you plan.</div></div>
-      <div class="feature-card reveal"><div class="feature-icon">🔥</div><div class="feature-title pt">Sequências motivadoras</div><div class="feature-title en" style="display:none">Motivating streaks</div><div class="feature-title-alt pt">Motivating streaks</div><div class="feature-title-alt en" style="display:none">Sequências motivadoras</div><div class="feature-desc pt">Celebra o progresso, não pune o atraso. Gamificação leve que funciona de verdade.</div><div class="feature-desc en" style="display:none">Celebrates progress, never punishes delays. Light gamification that actually works.</div></div>
-      <div class="feature-card reveal"><div class="feature-icon">📶</div><div class="feature-title pt">Funciona offline</div><div class="feature-title en" style="display:none">Works offline</div><div class="feature-title-alt pt">Works offline</div><div class="feature-title-alt en" style="display:none">Funciona offline</div><div class="feature-desc pt">Adicione tarefas sem internet. Sincroniza automaticamente ao reconectar.</div><div class="feature-desc en" style="display:none">Add tasks without internet. Syncs automatically when back online.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 3L5 14H12L11 21L19 10H12L13 3Z" stroke="#1A1A18" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="feature-title pt">Tela "Hoje" inteligente</div><div class="feature-title en" style="display:none">Smart "Today" screen</div><div class="feature-title-alt pt">Smart "Today" screen</div><div class="feature-title-alt en" style="display:none">Tela "Hoje" inteligente</div><div class="feature-desc pt">Abre sempre no que importa agora. Progresso do dia visível de relance, sem precisar procurar.</div><div class="feature-desc en" style="display:none">Always opens on what matters now. Day progress visible at a glance.</div></div>
+      <div class="feature-card dark reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7L12 3L21 7L12 11L3 7Z" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 12L12 16L21 12" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17L12 21L21 17" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feature-title pt">Contextos separados</div><div class="feature-title en" style="display:none">Separate contexts</div><div class="feature-title-alt pt">Separate contexts</div><div class="feature-title-alt en" style="display:none">Contextos separados</div><div class="feature-desc pt">Pessoal e profissional num só app, sem misturar. Alterne com um toque.</div><div class="feature-desc en" style="display:none">Personal and work in one app, never mixed. Switch with one tap.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#1A1A18" stroke-width="1.5"/><path d="M8 12L11 15L16 9" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="feature-title pt">Checklist nativo</div><div class="feature-title en" style="display:none">Native checklist</div><div class="feature-title-alt pt">Native checklist</div><div class="feature-title-alt en" style="display:none">Checklist nativo</div><div class="feature-desc pt">Subtarefas dentro de qualquer tarefa. Perfeito para projetos com etapas.</div><div class="feature-desc en" style="display:none">Subtasks inside any task. Perfect for multi-step projects.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#1A1A18" stroke-width="1.5"/><path d="M8 3V7M16 3V7M3 10H21" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round"/><path d="M8 14H8.01M12 14H12.01M16 14H16.01M8 17H8.01M12 17H12.01" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/></svg></div><div class="feature-title pt">Agenda semanal</div><div class="feature-title en" style="display:none">Weekly agenda</div><div class="feature-title-alt pt">Weekly agenda</div><div class="feature-title-alt en" style="display:none">Agenda semanal</div><div class="feature-desc pt">Veja a semana inteira num só olhar. Slots livres visíveis para planejar melhor.</div><div class="feature-desc en" style="display:none">See the whole week at once. Free slots visible to help you plan.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 14 6.5 13 10C15.5 7.5 16.5 4 16.5 4C16.5 4 20 7.5 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 8.5 6 6.5 6 6.5C6 6.5 6 10 8.5 11C7.5 8.5 8.5 4 12 3Z" stroke="#1A1A18" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg></div><div class="feature-title pt">Sequências motivadoras</div><div class="feature-title en" style="display:none">Motivating streaks</div><div class="feature-title-alt pt">Motivating streaks</div><div class="feature-title-alt en" style="display:none">Sequências motivadoras</div><div class="feature-desc pt">Celebra o progresso, não pune o atraso. Gamificação leve que funciona de verdade.</div><div class="feature-desc en" style="display:none">Celebrates progress, never punishes delays. Light gamification that actually works.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12.5C7.2 10.3 10 9 12 9C14 9 16.8 10.3 19 12.5" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round"/><path d="M8 15.5C9.3 14.2 10.6 13.5 12 13.5C13.4 13.5 14.7 14.2 16 15.5" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="19" r="1.2" fill="#1A1A18"/><path d="M3 7C5.8 4.3 8.8 3 12 3C15.2 3 18.2 4.3 21 7" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round"/><path d="M2 4L22 20" stroke="#1A1A18" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/></svg></div><div class="feature-title pt">Funciona offline</div><div class="feature-title en" style="display:none">Works offline</div><div class="feature-title-alt pt">Works offline</div><div class="feature-title-alt en" style="display:none">Funciona offline</div><div class="feature-desc pt">Adicione tarefas sem internet. Sincroniza automaticamente ao reconectar.</div><div class="feature-desc en" style="display:none">Add tasks without internet. Syncs automatically when back online.</div></div>
     </div>
     <div class="cta-strip reveal">
       <div class="cta-strip-title pt">Pronto para começar?</div>
@@ -927,7 +926,7 @@ document.addEventListener('keydown', e => {
       </div>
       <div class="footer-col">
         <div class="footer-col-title pt">Contato</div><div class="footer-col-title en" style="display:none">Contact</div>
-        <a href="mailto:oi@dailyflow.app" class="footer-link">oi@dailyflow.app</a>
+        <a href="/cdn-cgi/l/email-protection#046b6d4460656d687d62686b732a657474" class="footer-link"><span class="__cf_email__" data-cfemail="244b4d6440454d485d42484b530a455454">[email&#160;protected]</span></a>
       </div>
     </div>
   </div>
@@ -966,14 +965,14 @@ document.addEventListener('keydown', e => {
       <p class="pt">Os e-mails são armazenados de forma segura no Supabase (infraestrutura AWS), com criptografia em trânsito (TLS) e em repouso. O acesso é restrito e protegido por controles de autenticação.</p>
       <p class="en" style="display:none">Emails are securely stored on Supabase (AWS infrastructure), with encryption in transit (TLS) and at rest. Access is restricted and protected by authentication controls.</p>
       <h3 class="pt">4. Seus direitos (LGPD)</h3><h3 class="en" style="display:none">4. Your rights (LGPD)</h3>
-      <p class="pt">Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar seus dados, corrigir informações incorretas, solicitar a exclusão do seu e-mail a qualquer momento, e revogar seu consentimento. Para exercer qualquer desses direitos, envie um e-mail para <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a>.</p>
-      <p class="en" style="display:none">In accordance with the Brazilian General Data Protection Law (LGPD – Law No. 13,709/2018), you have the right to: access your data, correct inaccurate information, request deletion of your email at any time, and withdraw consent. To exercise any of these rights, email <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a>.</p>
+      <p class="pt">Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar seus dados, corrigir informações incorretas, solicitar a exclusão do seu e-mail a qualquer momento, e revogar seu consentimento. Para exercer qualquer desses direitos, envie um e-mail para <a href="/cdn-cgi/l/email-protection#ed8284ad898c8481948b81829ac38c9d9d" class="legal-link"><span class="__cf_email__" data-cfemail="86e9efc6e2e7efeaffe0eae9f1a8e7f6f6">[email&#160;protected]</span></a>.</p>
+      <p class="en" style="display:none">In accordance with the Brazilian General Data Protection Law (LGPD – Law No. 13,709/2018), you have the right to: access your data, correct inaccurate information, request deletion of your email at any time, and withdraw consent. To exercise any of these rights, email <a href="/cdn-cgi/l/email-protection#ed8284ad898c8481948b81829ac38c9d9d" class="legal-link"><span class="__cf_email__" data-cfemail="2c43456c484d4540554a40435b024d5c5c">[email&#160;protected]</span></a>.</p>
       <h3 class="pt">5. Retenção de dados</h3><h3 class="en" style="display:none">5. Data retention</h3>
       <p class="pt">Seus dados são mantidos até o lançamento do aplicativo ou até você solicitar a exclusão, o que ocorrer primeiro.</p>
       <p class="en" style="display:none">Your data is retained until the app launches or until you request deletion, whichever comes first.</p>
       <h3 class="pt">6. Contato</h3><h3 class="en" style="display:none">6. Contact</h3>
-      <p class="pt">Dúvidas? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
-      <p class="en" style="display:none">Questions? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
+      <p class="pt">Dúvidas? <a href="/cdn-cgi/l/email-protection#422d2b0226232b2e3b242e2d356c233232" class="legal-link"><span class="__cf_email__" data-cfemail="7a15133a1e1b1316031c16150d541b0a0a">[email&#160;protected]</span></a></p>
+      <p class="en" style="display:none">Questions? <a href="/cdn-cgi/l/email-protection#80efe9c0e4e1e9ecf9e6eceff7aee1f0f0" class="legal-link"><span class="__cf_email__" data-cfemail="e58a8ca581848c899c83898a92cb849595">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -1017,14 +1016,4 @@ document.addEventListener('keydown', e => {
       <p class="pt">Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site.</p>
       <p class="en" style="display:none">Cookies are small text files stored in your browser when you visit a website.</p>
       <h3 class="pt">2. Cookies que utilizamos</h3><h3 class="en" style="display:none">2. Cookies we use</h3>
-      <p class="pt">Esta página utiliza apenas cookies essenciais de funcionamento (ex: idioma selecionado). Não utilizamos cookies de rastreamento, publicidade ou analytics de terceiros nesta fase.</p>
-      <p class="en" style="display:none">This page uses only essential functional cookies (e.g., selected language). We do not use tracking, advertising, or third-party analytics cookies at this stage.</p>
-      <h3 class="pt">3. Contato</h3><h3 class="en" style="display:none">3. Contact</h3>
-      <p class="pt">Dúvidas? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
-      <p class="en" style="display:none">Questions? <a href="mailto:oi@dailyflow.app" class="legal-link">oi@dailyflow.app</a></p>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+      <p class="pt">Esta página utiliza apenas cookies essenciais de funcionamento (ex: idioma selecionado). Não utilizamos cookies de
